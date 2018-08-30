@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,27 +21,10 @@ public class PersonResource {
 	PersonService personService;
 
 	@RequestMapping(method=RequestMethod.GET)
-	public List<Person> list(){
-		Person p1 = new Person();
-		p1.setAge(22);
-		p1.setFavouriteColor("Blue");
-		p1.setFirstName("Gabriel");
-		p1.setLastName("Machado");
+	public ResponseEntity<List<Person>> list(){
 		
-		Person p2 = new Person();
-		p2.setAge(30);
-		p2.setFavouriteColor("Pink");
-		p2.setFirstName("Larissa");
-		p2.setLastName("Aoyama");
+		List<Person> list = personService.findAll();
 		
-		List<Person> people = new ArrayList<>();
-		
-		people.add(p1);
-		people.add(p2);
-		
-		people = personService.findAll();
-		
-		return people;
-		
+		return ResponseEntity.ok().body(list);
 	}
 }

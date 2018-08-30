@@ -15,6 +15,7 @@ public class PersonService {
 	PersonRepository repo;
 	
 	public List<Person> findAll() {
+		
 		return repo.findAll();
 	}
 	
