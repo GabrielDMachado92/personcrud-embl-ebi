@@ -1,6 +1,7 @@
 package com.embl.ebi.personcrud.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,5 +27,9 @@ public class PersonService {
 		return repo.save(obj);
 	}
 	
+	public Person find(Integer id) {
+		Optional<Person> obj = repo.findById(id);
+		return obj.get();
+	}
 	
 }
