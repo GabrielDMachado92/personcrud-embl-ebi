@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.embl.ebi.personcrud.domain.Person;
 import com.embl.ebi.personcrud.repositories.PersonRepository;
@@ -12,11 +13,18 @@ import com.embl.ebi.personcrud.repositories.PersonRepository;
 public class PersonService {
 	
 	@Autowired
-	PersonRepository repo;
+	private PersonRepository repo;
 	
 	public List<Person> findAll() {
 		
 		return repo.findAll();
 	}
+	
+	@Transactional
+	public Person insert(Person obj) {
+		obj.setId(null);
+		return repo.save(obj);
+	}
+	
 	
 }
