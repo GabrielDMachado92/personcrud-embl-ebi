@@ -3,8 +3,6 @@ package com.embl.ebi.personcrud.resources;
 import java.net.URI;
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,7 +32,7 @@ public class PersonResource {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
-	public ResponseEntity<Void> insert(@Valid @RequestBody Person obj) {
+	public ResponseEntity<Void> insert(@RequestBody Person obj) {
 		
 		obj = personService.insert(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
@@ -50,5 +48,19 @@ public class PersonResource {
 
 	}
 	
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<Void> delete(@PathVariable Integer id) {
+
+		personService.delete(id);
+		return ResponseEntity.noContent().build();
+
+	}
+	
+	@RequestMapping(value="/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<Void> update(@RequestBody Person obj, @PathVariable Integer id){
+		obj.setId(id);
+		obj = personService.update(obj);
+		return ResponseEntity.noContent().build();
+	}
 	
 }
