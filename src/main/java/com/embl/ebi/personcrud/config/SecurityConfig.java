@@ -16,6 +16,15 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+
+/**
+ * 
+ * @author gabriel.machado
+ *
+ * Adding some security layer, for now it's all granted and I couldn't add JWT token yet
+ *
+ *
+ */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{

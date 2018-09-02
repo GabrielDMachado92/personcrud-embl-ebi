@@ -5,6 +5,15 @@ import org.springframework.stereotype.Service;
 
 import com.embl.ebi.personcrud.domain.Person;
 
+
+/**
+ * 
+ * @author gabriel.machado
+ * 
+ * This is for when the first time I run the app it has some data already
+ * 
+ *
+ */
 @Service
 public class InitiateDbService {
 
