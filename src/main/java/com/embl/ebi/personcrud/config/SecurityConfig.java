@@ -35,6 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	public static final String[] PUBLIC_MATCHERS = {
 			"/h2-console/**",
+			"/people/**"
 	};
 	
 	
@@ -60,7 +61,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		
 		http.authorizeRequests()
 		.antMatchers(PUBLIC_MATCHERS).permitAll()
-		.antMatchers(HttpMethod.GET, PUBLIC_MATCHERS_GET).permitAll()
+		//.antMatchers(PUBLIC_MATCHERS).permitAll()
+		//.antMatchers(HttpMethod.GET, PUBLIC_MATCHERS_GET).permitAll()
 		.anyRequest().authenticated();
 		
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

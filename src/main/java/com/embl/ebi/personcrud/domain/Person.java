@@ -6,6 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
 
 
 /**
@@ -22,12 +26,19 @@ public class Person implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
+	@NotBlank
+	@Length(min = 3, max = 80, message = "Min 3 and max 80 caracters")
 	private String firstName;
 	
+	@NotBlank
+	@Length(min = 3, max = 80, message = "Min 3 and max 80 caracters")
 	private String lastName;
 	
+	@NotNull
 	private Integer age;
 	
+	@NotBlank
+	@Length(min = 3, max = 60, message = "Min 3 and max 60 caracters")
 	private String favouriteColor;
 
 	public Person () {}
