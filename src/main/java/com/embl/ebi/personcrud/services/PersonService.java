@@ -9,7 +9,15 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.embl.ebi.personcrud.domain.Person;
 import com.embl.ebi.personcrud.repositories.PersonRepository;
+import com.embl.ebi.personcrud.services.exceptions.ObjectNotFoundException;
 
+/**
+ * 
+ * @author gabriel.machado
+ * Gets the object from resource and do any business or other logic that it need to get it ready to access the database(repository)
+ * 
+ *
+ */
 @Service
 public class PersonService {
 
@@ -29,7 +37,7 @@ public class PersonService {
 
 	public Person find(Integer id) {
 		Optional<Person> obj = repo.findById(id);
-		return obj.get();
+		return obj.orElseThrow(() -> new ObjectNotFoundException("Pessoa não encontrada! Id: " + id + ", Tipo: " + Person.class.getName()));
 	}
 
 	public void delete(Integer id) {

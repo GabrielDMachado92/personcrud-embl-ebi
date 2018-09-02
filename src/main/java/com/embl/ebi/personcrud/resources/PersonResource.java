@@ -14,7 +14,14 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.embl.ebi.personcrud.domain.Person;
 import com.embl.ebi.personcrud.services.PersonService;
-
+/**
+ * 
+ * @author gabriel.machado
+ * Rest endpoint, please use this just as an endpoint from rest, do not code any business logic here, use the service
+ * 
+ * If you need, you can create a DTO object to talk as the endpoint, didn't do that here, because it was not necessary for this scope yet
+ *
+ */
 @RestController
 @RequestMapping(value = "/people")
 public class PersonResource {

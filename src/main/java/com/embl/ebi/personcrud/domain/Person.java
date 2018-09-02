@@ -7,6 +7,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+
+/**
+ * 
+ * @author gabriel.machado
+ * Person entity
+ *
+ */
 @Entity
 public class Person implements Serializable {
 	private static final long serialVersionUID = 1L;
