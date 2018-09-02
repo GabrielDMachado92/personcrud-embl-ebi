@@ -8,6 +8,14 @@ import org.springframework.context.annotation.Profile;
 
 import com.embl.ebi.personcrud.services.InitiateDbService;
 
+/**
+ * 
+ * @author gabriel.machado
+ * test env with mysql
+ * 
+ *
+ */
+
 @Configuration
 @Profile("dev")
 public class DevConfig {
