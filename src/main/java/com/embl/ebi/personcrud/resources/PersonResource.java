@@ -68,7 +68,7 @@ public class PersonResource {
 	}
 	
 	@RequestMapping(value="/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Void> update(@RequestBody Person obj, @PathVariable Integer id){
+	public ResponseEntity<Void> update(@Valid @RequestBody Person obj, @PathVariable Integer id){
 		obj.setId(id);
 		obj = personService.update(obj);
 		return ResponseEntity.noContent().build();
