@@ -47,7 +47,7 @@ public class PersonService {
 
 	public Person find(Integer id) {
 		Optional<Person> obj = repo.findById(id);
-		return obj.orElseThrow(() -> new ObjectNotFoundException("Pessoa não encontrada! Id: " + id + ", Tipo: " + Person.class.getName()));
+		return obj.orElseThrow(() -> new ObjectNotFoundException("Person does not exists! Id: " + id + ", Type: " + Person.class.getName()));
 	}
 
 	public void delete(Integer id) {
