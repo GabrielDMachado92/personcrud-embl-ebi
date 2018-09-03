@@ -1,6 +1,5 @@
 package com.embl.ebi.personcrud.services;
 
-import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +20,6 @@ public class InitiateDbService {
 	@Autowired
 	PersonService personService;
 	
-	@Test
 	public void instatiateDatabase() {
 		
 		Person p1 = new Person();
